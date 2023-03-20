@@ -55,9 +55,7 @@ func (s *Scout) MeritBadges() []string {
 }
 
 ```
-En el código proporcionado, los métodos públicos Name(), Rank(), Patrol() y MeritBadges() proporcionan acceso a los campos de name, rank, patrol y meritBadges, respectivamente. De esta manera, los campos se pueden leer (acceder) sin necesidad de exponerlos directamente, lo que asegura que los datos estén protegidos y encapsulados.
-
-Por ejemplo, si se quiere acceder al nombre de un objeto Scout, se puede llamar al método Name(). De esta manera, el método Name() actúa como una interfaz pública para acceder al campo privado name de la estructura Scout.
+En el código proporcionado, los métodos públicos Name(), Rank(), Patrol() y MeritBadges() proporcionan acceso a los campos de name, rank, patrol y meritBadges, respectivamente. De esta manera, los campos se pueden leer (acceder) sin necesidad de exponerlos directamente, lo que asegura que los datos estén protegidos y encapsulados. Por ejemplo, si se quiere acceder al nombre de un objeto Scout, se puede llamar al método Name(). 
 
 Para definir métodos que modifiquen el valor de un campo, se pueden crear métodos con un nombre que empiece por "Set" seguido del nombre del campo que se quiere modificar en mayúscula. Por ejemplo, si tenemos un campo llamado "patrol" en la estructura Scout, podríamos definir un método SetPatrol que modifique el valor de este campo:
 ```golang
@@ -67,8 +65,4 @@ func (s *Scout) SetPatrol(patrol string) {
 }
 ```
 Este método, al ser definido en la estructura Scout, tiene acceso al campo "patrol" y lo modifica directamente. De esta forma, se sigue el principio de acceso uniforme y se asegura que cualquier modificación del campo "patrol" se haga a través de un método de la estructura Scout, manteniendo la encapsulación de los datos.
-
-
-
-Por último, Go también aplica el principio de acceso uniforme, lo que significa que el acceso a los campos públicos y privados de una estructura se hace de la misma manera, a través de métodos públicos que acceden a los campos internos de la estructura.
 
