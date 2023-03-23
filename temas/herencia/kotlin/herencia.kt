@@ -5,7 +5,7 @@ open class RaspberryPiDevice(val id: Int, val name: String) {
     }
 
     fun shutDown() {
-        println("$name $id está apagando")
+        println("$name $id está apagándose")
     }
 }
 
