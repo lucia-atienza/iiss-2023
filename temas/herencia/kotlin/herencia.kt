@@ -48,18 +48,15 @@ class RaspberryPiRelay(id: Int, name: String, gpioPin: Int) : RaspberryPiActuato
     }
 }
 
-// Función para interactuar con un dispositivo de Raspberry Pi genérico
 fun interactWithRaspberryPiDevice(device: RaspberryPiDevice) {
     device.bootUp()
     device.shutDown()
 }
 
-// Función para leer datos de un sensor de Raspberry Pi genérico
 fun readRaspberryPiSensorData(sensor: RaspberryPiSensor) {
     sensor.readSensorData()
 }
 
-// Función para configurar el estado de un actuador de Raspberry Pi genérico
 fun setRaspberryPiActuatorState(actuator: RaspberryPiActuator, state: Boolean) {
     actuator.setActuatorState(state)
 }
