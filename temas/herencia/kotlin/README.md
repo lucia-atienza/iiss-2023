@@ -26,34 +26,35 @@ class Clase : Interfaz {
 ```
 Cabe destacar que en versiones anteriores de Kotlin, se utilizaban los traits para definir comportamientos compartidos entre clases, pero en versiones más recientes, los traits han sido reemplazados por las interfaces.Las interfaces en Kotlin también pueden heredar de otras interfaces, lo que permite definir jerarquías de interfaces.
 
-En el código de ejemplo se muestra la implementación de clases y funciones en Kotlin para interactuar con dispositivos de Raspberry Pi (sensores y actuadores). Se define una clase base llamada `RaspberryPiDevice` que representa un dispositivo de Raspberry Pi y dos subclases que heredan de ella, `RaspberryPiSensor` y `RaspberryPiActuator`. Las subclases a su vez tienen subclases específicas que representan sensores de temperatura, LEDs y relés. Cada subclase implementa métodos específicos que permiten interactuar con el dispositivo correspondiente, como leer datos del sensor o configurar el estado del actuador.
+En el código de ejemplo se muestra la implementación de clases y funciones en Kotlin haciendo uso de herencia y polimorfismo de inclusión, utilizando para ello un mundo inspirado en Juego de Tronos. Hay una clase base llamada `Casa` que tiene tres subclases: `CasaNoble`, `CasaReal` y `CasaMenor`. Cada subclase tiene atributos adicionales (añadidos a los que ya tiene de la superclase) y métodos específicos que las distinguen de las demás.
 
-Además, se definen varias funciones que permiten interactuar con los dispositivos. En la función main, se crean instancias de cada uno de los dispositivos y se llaman a las funciones correspondientes para interactuar con ellos. 
+En el método `main` se crean instancias de las diferentes casas y se agregan a una lista de tipo `Casa`. Luego, se itera sobre esta lista y se llama al método `conquistarTierras` de cada objeto, mostrando claramente el polimorfismo de inclusión antes mencionado, así como métodos específicos adicionales de las clases.
+
+
 ``` kotlin
 fun main() {
-    val temperatureSensor = RaspberryPiTemperatureSensor(1, "Sensor de Temperatura", 4)
-    val led = RaspberryPiLED(2, "LED", 17)
-    val relay = RaspberryPiRelay(3, "Relé", 27)
+    val casaTargaryen = CasaReal("Targaryen", "Fuego y sangre", 3, 1000, 10, true)
+    val casaStark = CasaNoble("Stark", "Se acerca el invierno", 5, 500, 5)
+    val casaKarstark = CasaMenor("Karstark", "El sol de invierno", 2, casaStark)
+    
+	val casas: MutableList<Casa> = mutableListOf(casaTargaryen, casaStark,casaKarstark)
+     for (casa in casas) {
+        casa.conquistarTierras()
+    }
 
-    interactWithRaspberryPiDevice(temperatureSensor)
-    readRaspberryPiSensorData(temperatureSensor)
-
-    interactWithRaspberryPiDevice(led)
-    setRaspberryPiActuatorState(led, true)
-
-    interactWithRaspberryPiDevice(relay)
-    setRaspberryPiActuatorState(relay, false)
+    casaTargaryen.sentarEnElTrono(casaStark)
+    casaKarstark.solicitarProteccion()
 }
-```
-Dando como resultado el siguiente output:
 ``` 
-Sensor de Temperatura 1 está arrancando
-Sensor de Temperatura 1 está apagándose
-Sensor de Temperatura 1 leyendo temperatura del sensor en el puerto GPIO 4
-LED 2 está arrancando
-LED 2 está apagándose
-LED 2 configurando el estado del LED en el puerto GPIO 17 a true
-Relé 3 está arrancando
-Relé 3 está apagándose
-Relé 3 configurando el estado del relé en el puerto GPIO 27 a false
-```
+Obteniendo el output:
+``` 
+Targaryen ha conquistado nuevas tierras. 
+Targaryen ahora posee 1000 acres de tierra. 
+Targaryen además de tener derecho a nombrar a sus propios vasallos
+Stark ha conquistado nuevas tierras. 
+Stark ahora posee 500 acres de tierra. 
+Karstark ha conquistado nuevas tierras. 
+Targaryen ha sentado a Stark en el Trono de Hierro
+Karstark ha solicitado protección de Stark
+Stark ha nombrado a Karstark como su vasallo
+``` 
