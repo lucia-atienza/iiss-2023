@@ -48,8 +48,8 @@ fun main() {
     val casaStark = CasaNoble("Stark", "Se acerca el invierno", 5, 500, 5)
     val casaKarstark = CasaMenor("Karstark", "El sol de invierno", 2, casaStark)
     
-	val casas: MutableList<Casa> = mutableListOf(casaTargaryen, casaStark,casaKarstark)
-     for (casa in casas) {
+    val casas: MutableList<Casa> = mutableListOf(casaTargaryen, casaStark,casaKarstark)
+    for (casa in casas) {
         casa.conquistarTierras()
     }
 
