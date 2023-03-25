@@ -24,7 +24,7 @@ class Clase : Interfaz {
    // Propiedades y métodos de la clase
 }
 ```
-Cabe destacar que en versiones anteriores de Kotlin, se utilizaban los traits para definir comportamientos compartidos entre clases, pero en versiones más recientes, los traits han sido reemplazados por las interfaces.Las interfaces en Kotlin también pueden heredar de otras interfaces, lo que permite definir jerarquías de interfaces.
+Cabe destacar que en versiones anteriores de Kotlin, se utilizaban los traits para definir comportamientos compartidos entre clases, pero en versiones más recientes, los traits han sido reemplazados por las interfaces. Las interfaces en Kotlin también pueden heredar de otras interfaces, lo que permite definir jerarquías de interfaces.
 
 En el código de ejemplo se muestra la implementación de clases y funciones en Kotlin haciendo uso de herencia y polimorfismo de inclusión, utilizando para ello un mundo inspirado en Juego de Tronos. Hay una clase base llamada `Casa` que tiene tres subclases: `CasaNoble`, `CasaReal` y `CasaMenor`. Cada subclase tiene atributos adicionales (añadidos a los que ya tiene de la superclase) y métodos específicos que las distinguen de las demás.
 
