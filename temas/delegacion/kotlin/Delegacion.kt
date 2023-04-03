@@ -1,6 +1,7 @@
 // Compilar:
 // kotlinc -include-runtime Delegacion.kt -d Delegacion.jar
 // java -jar Delegacion.jar
+// compilar online: https://play.kotlinlang.org/
 //
 // Clase base que representa un dispositivo de Raspberry Pi
 interface RaspberryPiDevice {
