@@ -1,3 +1,7 @@
+// Compilar:
+// kotlinc -include-runtime Delegacion.kt -d Delegacion.jar
+// java -jar Delegacion.jar
+//
 // Clase base que representa un dispositivo de Raspberry Pi
 interface RaspberryPiDevice {
     fun bootUp()
