@@ -1,3 +1,9 @@
+/*
+Compilar:
+kotlinc -include-runtime Anotaciones.kt -d Anotaciones.jar
+java -jar Anotaciones.jar
+online: https://play.kotlinlang.org/
+*/
 @Target(AnnotationTarget.FIELD)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class Requerido
