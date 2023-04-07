@@ -1,5 +1,5 @@
 ## Anotaciones en Kotlin
-Las anotaciones son medios para adjuntar metadatos al código. Para declarar una anotación, ponga el modificador annotation delante de una clase:
+Las anotaciones son medios para adjuntar metadatos al código. Para declarar una anotación, es necesario poner el modificador `annotation` delante de una clase:
 ``` kotlin
 annotation class NombreAnotacion
 ```
@@ -38,7 +38,7 @@ Al utilizar la función `funcionObsoleta()` en el `main()`, el IDE o la consola 
 ![width:600 center](anotaciones.png)
 
 
-Cabe destacar que Kotlin es un lenguaje interoperable con Java. De este modo, as anotaciones definidas en Kotlin pueden ser utilizadas en código Java de la misma manera que se utilizan las anotaciones definidas en Java. Además, existe el paquete kotlin.jvm que contiene anotaciones y funciones específicas para Java.
+Cabe destacar que Kotlin es un lenguaje interoperable con Java. De este modo, las anotaciones definidas en Kotlin pueden ser utilizadas en código Java de la misma manera que se utilizan las anotaciones definidas en Java. Además, existe el paquete kotlin.jvm que contiene anotaciones y funciones específicas para Java.
 
 
 En el código de ejemplo, se utilizan anotaciones para validar un formulario. En este caso, las anotaciones `Requerido` y `Rango` se aplican a los campos del objeto Formulario para indicar que son campos obligatorios y que tienen un rango específico de valores permitidos. La anotación `@Target` indica en qué elementos del código se pueden aplicar las anotaciones, en este caso, solo a campos. La anotación `@Retention` indica cuándo se deben retener las anotaciones, en este caso, durante la ejecución del programa.
