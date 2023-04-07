@@ -33,10 +33,16 @@ fun main() {
     funcionObsoleta()
 }
 ```
-Al utilizar la función funcionObsoleta() en el main(), el IDE o la consola de depuración mostrará una advertencia que indica que se trata de una función obsoleta y sugiere utilizar otra función en su lugar. Esto ayuda a los desarrolladores a evitar el uso de funciones obsoletas y a mantener el código actualizado con las últimas mejores prácticas y funcionalidades disponibles.
+Al utilizar la función `funcionObsoleta()` en el `main()`, el IDE o la consola de depuración mostrará una advertencia que indica que se trata de una función obsoleta y sugiere utilizar otra función en su lugar. Esto ayuda a los desarrolladores a evitar el uso de funciones obsoletas y a mantener el código actualizado con las últimas mejores prácticas y funcionalidades disponibles.
 
 ![width:600 center](anotaciones.png)
 
 
 Cabe destacar que Kotlin es un lenguaje interoperable con Java. De este modo, as anotaciones definidas en Kotlin pueden ser utilizadas en código Java de la misma manera que se utilizan las anotaciones definidas en Java. Además, existe el paquete kotlin.jvm que contiene anotaciones y funciones específicas para Java.
+
+
+En el código de ejemplo, se utilizan anotaciones para validar un formulario. En este caso, las anotaciones `Requerido` y `Rango` se aplican a los campos del objeto Formulario para indicar que son campos obligatorios y que tienen un rango específico de valores permitidos.
+
+En el código de ejemplo hay dos formularios creados. En el primero podemos observar que al no ser campo `Requerido` el dni, se ejecuta sin problemas aunque esté vacío. En el segundo, sin embargo, dará error tanto el nombre vacío como la edad (al pasarse del rango).
+
 
