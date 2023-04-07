@@ -41,7 +41,7 @@ Al utilizar la función `funcionObsoleta()` en el `main()`, el IDE o la consola 
 Cabe destacar que Kotlin es un lenguaje interoperable con Java. De este modo, as anotaciones definidas en Kotlin pueden ser utilizadas en código Java de la misma manera que se utilizan las anotaciones definidas en Java. Además, existe el paquete kotlin.jvm que contiene anotaciones y funciones específicas para Java.
 
 
-En el código de ejemplo, se utilizan anotaciones para validar un formulario. En este caso, las anotaciones `Requerido` y `Rango` se aplican a los campos del objeto Formulario para indicar que son campos obligatorios y que tienen un rango específico de valores permitidos.
+En el código de ejemplo, se utilizan anotaciones para validar un formulario. En este caso, las anotaciones `Requerido` y `Rango` se aplican a los campos del objeto Formulario para indicar que son campos obligatorios y que tienen un rango específico de valores permitidos. La anotación `@Target` indica en qué elementos del código se pueden aplicar las anotaciones, en este caso, solo a campos. La anotación `@Retention` indica cuándo se deben retener las anotaciones, en este caso, durante la ejecución del programa.
 
 En el código de ejemplo hay dos formularios creados. En el primero podemos observar que al no ser campo `Requerido` el dni, se ejecuta sin problemas aunque esté vacío. En el segundo, sin embargo, dará error tanto el nombre vacío como la edad (al pasarse del rango).
 
