@@ -41,8 +41,10 @@ Al utilizar la función `funcionObsoleta()` en el `main()`, el IDE o la consola 
 Cabe destacar que Kotlin es un lenguaje interoperable con Java. De este modo, las anotaciones definidas en Kotlin pueden ser utilizadas en código Java de la misma manera que se utilizan las anotaciones definidas en Java. Además, existe el paquete kotlin.jvm que contiene anotaciones y funciones específicas para Java.
 
 
-En el código de ejemplo, se utilizan anotaciones para validar un formulario. En este caso, las anotaciones `Requerido` y `Rango` se aplican a los campos del objeto Formulario para indicar que son campos obligatorios y que tienen un rango específico de valores permitidos. La anotación `@Target` indica en qué elementos del código se pueden aplicar las anotaciones, en este caso, solo a campos. La anotación `@Retention` indica cuándo se deben retener las anotaciones, en este caso, durante la ejecución del programa.
+En este ejemplo, se definen dos anotaciones:
 
-En el código de ejemplo hay dos formularios creados. En el primero podemos observar que al no ser campo `Requerido` el dni, se ejecuta sin problemas aunque esté vacío. En el segundo, sin embargo, dará error tanto el nombre vacío como la edad (al pasarse del rango).
+- `@Requerido`: Esta anotación se utiliza para indicar que un campo es requerido, lo cual significa que debe tener un valor asignado antes de que se pueda usar en el código. La anotación se aplica a los campos mediante la etiqueta `AnnotationTarget.FIELD`, y se mantiene durante la ejecución mediante la etiqueta `AnnotationRetention.RUNTIME`.
+
+- `@Rango`: Esta anotación se utiliza para definir un rango de valores válidos para un campo. La anotación incluye dos parámetros: "min" y "max", que especifican el valor mínimo y máximo permitido para el campo. Al igual que la anotación `@Requerido`, esta anotación se aplica a los campos mediante la etiqueta `AnnotationTarget.FIELD`, y se mantiene durante la ejecución mediante la etiqueta `AnnotationRetention.RUNTIME`.
 
 
