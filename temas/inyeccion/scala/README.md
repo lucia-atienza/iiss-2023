@@ -1,4 +1,8 @@
-## Inyección en Scala usando el framework Play
+## Inyección de dependencias en Scala usando el framework Play
+
+Desde el punto de vista de la inyección de dependencias, Scala y el framework Play ofrecen algunas características interesantes, como por ejemplo soporte nativo para Guice, inyección de dependencias por constructor e incluso uso de anotaciones. Se ha realizado un pequeño proyecto en Scala para simular un Equipo, Actividad y Campamento (que usa las anteriores) para aprender sobre inyección de dependencias usando este framework.
+
+
 Para el funcionamiento de este proyecto, es importante saber que las versiones de Play y Java deben ser compatibles. En mi caso he usado Java 11, Sbt en su versión 1.7.2 y Play en su versión 2.8.19. 
 Para compilar el proyecto basta con entrar en la carpeta y escribir el siguiente comando:
 
