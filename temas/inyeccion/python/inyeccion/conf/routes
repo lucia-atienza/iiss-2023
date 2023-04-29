@@ -1,0 +1,4 @@
+GET     /public/*file      controllers.Assets.versioned(path="/public", file: Asset)
+GET  /prepararActividades  controllers.CampamentoController.prepararActividades()
+GET  /empezar  controllers.ActividadController.empezar()
+GET  /presentarse  controllers.EquipoController.presentarse()
