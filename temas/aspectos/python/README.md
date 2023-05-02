@@ -26,35 +26,54 @@ aspectlib.weave(ListManager.addElement, validateInput)
 Este código creará un nuevo método que aplicará el aspecto a `addElement()` cada vez que se llame.
 
 Si hablamos sobre las posibilidades del weaving, Aspectlib ofrece una amplia variedad de puntos de corte que se pueden utilizar para aplicar aspectos a diferentes partes del código. Por ejemplo, se pueden utilizar los siguientes puntos de corte:
-- call(func): se ejecuta antes de la llamada a la función "func".
-- return_(value): se ejecuta después de la ejecución de una función y antes de que se devuelva el valor.
-- exception(exc): se ejecuta cuando se produce una excepción.
+- Proceed o None - Llama a la función envuelta con los argumentos por defecto. El rendimiento devuelve el valor de retorno de la función o lanza una excepción. Puede usarse varias veces (llamará a la función varias veces).
+- Proceed (*args, **kwargs) - Igual que arriba pero con diferentes argumentos.
+- Return - Hace que el wrapper devuelva None. Si aspectlib.Proceed no se ha utilizado nunca, no se llamará a la función envuelta. Después de esto el generador se cierra.
+- Return (value) - Igual que arriba pero devuelve el valor dado en lugar de None.
+- raise exception - Hace que el wrapper lance una excepción.
 
-Para aplicar un aspecto después de la ejecución de un método, se puede utilizar el punto de corte return_. Por ejemplo, para aplicar el aspecto `printSuccessMessage` después de la ejecución del método `addElement` de la clase `ListManager`, se puede hacer lo siguiente:
+https://python-aspectlib.readthedocs.io/en/latest/introduction.html#the-aspect
 
+Un ejemplo con Proceed:
 ```python
+import aspectlib
+
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
 @aspectlib.Aspect
-def printSuccessMessage(self, element, result):
-    print("Element added successfully to the list.")
+def log_addition(self, a, b):
+    print(f"Sumando {a} y {b}")
+    result = yield aspectlib.Proceed
+    print(f"Resultado: {result}")
 
-aspectlib.weave(ListManager.addElement, aspectlib.return_(printSuccessMessage))
+aspectlib.weave(Calculator.add, log_addition)
+
+calculator = Calculator()
+calculator.add(2, 3)
 ```
-
-
-En este caso, el aspecto `printSuccessMessage` se ejecutará después de la ejecución del método `addElement` y recibirá como argumentos el elemento que se ha agregado y el valor que ha devuelto el método (en este caso, siempre será None).
-
-Además, es posible definir pointcuts más elaborados utilizando expresiones regulares. Por ejemplo, para aplicar un aspecto a todos los métodos de la clase `ListManager` que empiecen por `add`, se puede hacer lo siguiente:
-
+Un ejemplo con Return:
 ```python
-aspectlib.weave(ListManager.__dict__, aspectlib.before(regexp=r'^add'))
+import aspectlib
+
+class StringTransformer:
+    def reverse(self, s):
+        return s[::-1]
+
+@aspectlib.Aspect
+def uppercase_output(self, s):
+    result = yield aspectlib.Proceed
+    yield aspectlib.Return(result.upper())
+
+aspectlib.weave(StringTransformer.reverse, uppercase_output)
+
+transformer = StringTransformer()
+print(transformer.reverse("Hello, world!"))
 ```
+Dado como output:
 
-
-
-En este caso, el aspecto se aplicará antes de la ejecución de cualquier método que empiece por `add` en la clase `ListManager`.
-
-
-
+![width:600 center](Return.png)
 
 El código de ejemplo que se encuentra en `aspectos.py` utiliza aspectos para validar el saldo inicial de una cuenta bancaria antes de agregarla a la lista de cuentas del banco. El aspecto `validar_saldo_inicial` se encarga de verificar que el saldo inicial de la cuenta sea mayor o igual a 30 euros. Si el saldo inicial cumple con esta condición, el aspecto permite que la función `agregar_cuenta` continúe su ejecución y agrega la cuenta a la lista del banco. Si el saldo inicial no cumple con la condición, el aspecto interrumpe la ejecución de la función y muestra un mensaje de error.
 
