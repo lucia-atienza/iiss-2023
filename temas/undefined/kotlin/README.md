@@ -57,6 +57,7 @@ fun getPropietario(computer: Computer): String? {
 
 
 
+
 En la función `getPropietarioNotNull(computer: Computer)`, se utiliza el operador `!!` para indicar que la propiedad `propietario` no es nula y forzar la ejecución del código, incluso si la propiedad es nula. Si la propiedad `propietario` es nula, se lanzará una excepción `NullPointerException`.
 
 ```kotlin
@@ -64,4 +65,11 @@ En la función `getPropietarioNotNull(computer: Computer)`, se utiliza el operad
 fun getPropietarioNotNull(computer: Computer): String {
     return computer.propietario!!.uppercase()
 }
+```
+
+### Compilación y ejecución
+```bash
+
+kotlinc Undefined.kt -include-runtime -d Undefined.jar
+java -jar Undefined.jar
 ```
