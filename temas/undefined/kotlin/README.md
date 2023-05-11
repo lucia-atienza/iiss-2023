@@ -73,3 +73,4 @@ fun getPropietarioNotNull(computer: Computer): String {
 kotlinc Undefined.kt -include-runtime -d Undefined.jar
 java -jar Undefined.jar
 ```
+O compilar online con https://play.kotlinlang.org/
