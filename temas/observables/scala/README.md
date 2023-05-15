@@ -21,3 +21,8 @@ Finalmente, se ejecuta el flujo de datos llamando al método `runWith` en el `So
 2. Escribir en la terminal `sbt compile`
 
 3. Escribir en la terminal `sbt run`
+
+
+El output sería el siguiente:
+
+![width:600 center](output.png)
