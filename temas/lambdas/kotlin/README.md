@@ -41,3 +41,11 @@ En el ejemplo, tenemos un map llamado `scoutSkills` donde las claves representan
 La sintaxis `{ (_, value) -> println("$value!") }` de la lambda significa que estamos interesados solo en el valor del par clave-valor, y no en la clave en sí. Utilizamos el guion bajo `_` para indicar que no nos importa la clave y, a continuación, usamos `value` para acceder al valor y imprimirlo.
 
 Por último, hemos agregado una variable `sum` y utilizamos la función `filter` para obtener solo los scouts cuya edad es mayor que 0. Luego, utilizamos la función `sumBy` para calcular la suma de las edades de los scouts filtrados y asignarla a la variable `sum`. Finalmente, imprimimos el resultado.
+
+
+### Compilación y ejecución
+```
+kotlinc Lambdas.kt -include-runtime -d Lambdas.jar
+java -jar Lambdas.jar
+```
+O usando https://play.kotlinlang.org
